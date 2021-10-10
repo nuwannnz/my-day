@@ -1,6 +1,8 @@
-import { Application } from 'express';
+import express, { Router } from 'express';
 import TodoRouter from './todo.routes';
 
-export const initializeRoutes = (app: Application) => {
-    app.use('/todo', TodoRouter);
+export const initRouter = (): Router => {
+    const router = express.Router();
+    router.use('/todo', TodoRouter);
+    return router;
 }
